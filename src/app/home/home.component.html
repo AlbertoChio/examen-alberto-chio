@@ -1,0 +1,36 @@
+<div class="container">
+  <ng-container *ngIf="busquedaForm">
+    <form [formGroup]="busquedaForm" (ngSubmit)="busquedaUsuarios()">
+      <div class="form-group">
+        <label for="busqueda"></label>
+        <input formControlName="SearchText" type="text" />
+      </div>
+      <button [disabled]="busquedaForm.invalid" class="btn btn-primary">
+        busqueda
+      </button>
+    </form>
+  </ng-container>
+  <div class="d-flex justify-content-end">
+    <button routerLink="/nuevo" class="btn btn-primary">nuevo</button>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>nombre</th>
+        <th>ap paterno</th>
+        <th>ap materno</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngIf="listaUsuarios && listaUsuarios.length > 0">
+        <tr *ngFor="let usuario of listaUsuarios">
+          <td>{{ usuario.Id }}</td>
+          <td>{{ usuario.Name }}</td>
+          <td>{{ usuario.FatherLastName }}</td>
+          <td>{{ usuario.MotherLastName }}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

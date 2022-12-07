@@ -1,0 +1,17 @@
+<div class="container">
+  <ng-container *ngIf="nuevoUsuarioForm">
+    <div *ngIf="datosInvalidos" class="alert alert-danger" role="alert">
+        {{message}}
+      </div>
+    <form [formGroup]="nuevoUsuarioForm" (ngSubmit)="nuevo()">
+      <div class="form-group"><label for="UserName">Usuario</label> <input formControlName="UserName" type="text" /></div>
+      <div class="form-group"><label for="Password">Password</label> <input formControlName="Password" type="password" /></div>
+      <div class="form-group"><label for="Name">Name</label> <input formControlName="Name" type="text" /></div>
+      <div class="form-group"><label for="FatherLastName">Father Last Name</label> <input formControlName="FatherLastName" type="text" /></div>
+      <div class="form-group"><label for="MotherLastName">Mother Last Name</label> <input formControlName="MotherLastName" type="text" /></div>
+      <div class="form-group"><label for="Email">Email</label> <input formControlName="Email" type="text" /></div>
+      <div class="form-group"><label for="PhoneNumber">Phone Number</label> <input formControlName="PhoneNumber" type="text" /></div>
+      <button class="btn btn-primary" [disabled]="nuevoUsuarioForm.invalid">nuevo</button>
+    </form>
+  </ng-container>
+</div>
